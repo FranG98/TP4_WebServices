@@ -1,0 +1,55 @@
+<div class="row">
+    <h4 class="text-success my-2 col-12" style="margin-left: 20px; font-family: 'Courier New', Courier, monospace;"><b>Los signos del Zodiaco</b></h4>
+    <div class="col-md-4 col-6">
+        <img src="../../../assets//media/aries.jpg">
+        <button class="btn btn-success text-white mx-2 px-md-5 px-4" style="font-family: 'Courier New', Courier, monospace;" (click)="cambiarSigno('Aries')"><b>Aries</b></button>
+        <br/>
+        <img src="../../../assets//media/tauro.jpg">
+        <button class="btn btn-success text-white mx-2 px-md-5 px-4" style="font-family: 'Courier New', Courier, monospace;" (click)="cambiarSigno('Taurus')"><b>Tauro</b></button>
+        <br/>
+        <img src="../../../assets//media/geminis.jpg">
+        <button class="btn btn-success text-white mx-2 px-md-5 px-3" style="font-family: 'Courier New', Courier, monospace;" (click)="cambiarSigno('Gemini')"><b>Geminis</b></button>
+        <br/>
+        <img src="../../../assets//media/cancer.jpg">
+        <button class="btn btn-success text-white mx-2 px-md-5 px-4" style="font-family: 'Courier New', Courier, monospace;" (click)="cambiarSigno('Cancer')"><b>Cáncer</b></button>
+    </div>
+    <div class="col-md-4 col-6">
+        <img src="../../../assets//media/leo.jpg">
+        <button class="btn btn-success text-white mx-2 px-md-5 px-4" style="font-family: 'Courier New', Courier, monospace;" (click)="cambiarSigno('Leo')"><b>Leo</b></button>
+        <br/>
+        <img src="../../../assets//media/virgen.jpg">
+        <button class="btn btn-success text-white mx-2 px-md-5 px-3" style="font-family: 'Courier New', Courier, monospace;" (click)="cambiarSigno('Virgo')"><b>Virgo</b></button>
+        <br/>
+        <img src="../../../assets//media/libra.jpg">
+        <button class="btn btn-success text-white mx-2 px-md-5 px-3" style="font-family: 'Courier New', Courier, monospace;" (click)="cambiarSigno('Libra')"><b>Libra</b></button>
+        <br/>
+        <img src="../../../assets//media/escorpio.jpg">
+        <button class="btn btn-success text-white mx-2 px-md-4" style="font-family: 'Courier New', Courier, monospace;" (click)="cambiarSigno('Scorpio')"><b>Escorpio</b></button>
+    </div>
+    <div class="col-md-4 col-12">
+        <img src="../../../assets//media/sagitario.jpg">
+        <button class="btn btn-success text-white mx-2 px-md-5" style="font-family: 'Courier New', Courier, monospace;" (click)="cambiarSigno('Sagittarius')"><b>Sagitario</b></button>
+        <!--<br/>-->
+        <img src="../../../assets//media/capricornio.jpg">
+        <button class="btn btn-success text-white mx-2 px-md-4" style="font-family: 'Courier New', Courier, monospace;" (click)="cambiarSigno('Capricorn')"><b>Capricornio</b></button>
+        <br/>
+        <img src="../../../assets//media/acuario.jpg">
+        <button class="btn btn-success text-white mx-2 px-md-5 px-4" style="font-family: 'Courier New', Courier, monospace;" (click)="cambiarSigno('Aquarius')"><b>Acuario</b></button>
+        <!--<br/>-->
+        <img src="../../../assets//media/piscis.jpg">
+        <button class="btn btn-success text-white mx-2 px-md-5 px-4" style="font-family: 'Courier New', Courier, monospace;" (click)="cambiarSigno('Pisces')"><b>Piscis</b></button>
+    </div>
+    <div class="col-12">
+            <h4 class="h4 text-white py-1 bg-success p-3"> {{signoElegido}} - Día</h4>
+            <div class="p-3 row col-12" style="background-color: lightgray; margin-top: -10px; margin-left: 0px;">
+                <div class="col-md-9 col-8">
+                    <h4 class="text-primary">{{signoElegido}}</h4>
+                    <p>{{descripcion}}</p>
+                </div>
+                <div class="col-md-3 col-4">
+                    <img src="{{signo.img}}" class="img-fluid" style="margin-top: 15px;">
+                </div> 
+            </div>  
+    </div>       
+        
+</div>

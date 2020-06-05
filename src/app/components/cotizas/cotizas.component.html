@@ -1,0 +1,69 @@
+<div class="row">
+        <div class="col-md-8 col-lg-8 col-xl-8 d-none d-sm-none d-md-block"> 
+                <p class="bg-info text-center text-white" style="font-size: 20px; margin-bottom: -16px; border: 2px solid; border-color: lightskyblue ;"><small>Conversor de Divisas</small><p>
+                <div class="table-responsive">
+                    <table class="table" style="border: 2px solid lightskyblue; text-align: center;">
+                        <thead>
+                            <tr>
+                              <th scope="col"></th>
+                              <th scope="col"></th>
+                              <th scope="col"><img src="../../../assets/media/usa.jpg" class="img-fluid"/><br/>USD</th>
+                              <th scope="col"><img src="../../../assets/media/ue.jpg" class="img-fluid"/><br/>EUR</th>                            
+                              <th scope="col"><img src="../../../assets/media/gbr.jpg" class="img-fluid"/><br/>GBP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                              <th scope="row" style="width: 10%;"><img src="../../../assets/media/usa.jpg" style="margin-top: 10px;"/></th>
+                              <td style="width: 10%;"><b>1 USD<br/>Inverse</b></td>
+                              <td>{{valoresIniciales[0] | number: '1.5'}}<br/>{{valoresIniciales[0] | number: '1.5'}}</td>
+                              <td style="color: blue">{{valoresIniciales[1] | number: '1.5'}}<br/>{{valoresIniciales[3] | number: '1.5'}}</td>
+                              <td style="color: blue">{{valoresIniciales[2] | number: '1.5'}}<br/>{{valoresIniciales[6] | number: '1.5'}}</td>
+                            </tr>
+                            <tr>
+                              <th scope="row"><img src="../../../assets/media/ue.jpg" style="margin-top: 10px;"/></th>
+                              <td><b>1 EUR<br/>Inverse</b></td>
+                              <td style="color: blue">{{valoresIniciales[3] | number: '1.5'}}<br/>{{valoresIniciales[1] | number: '1.5'}}</td>
+                              <td>{{valoresIniciales[4] | number: '1.5'}}<br/>{{valoresIniciales[4] | number: '1.5'}}</td>
+                              <td style="color: blue">{{valoresIniciales[5] | number: '1.5'}}<br/>{{valoresIniciales[7] | number: '1.5'}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><img src="../../../assets/media/gbr.jpg" style="margin-top: 10px;"/></th>
+                                <td><b>1 GBP<br/>Inverse</b></td>
+                                <td style="color: blue;">{{valoresIniciales[6] | number: '1.5'}}<br/>{{valoresIniciales[2] | number: '1.5'}}</td>
+                                <td style="color: blue;">{{valoresIniciales[7] | number: '1.5'}}<br/>{{valoresIniciales[5] | number: '1.5'}}</td>
+                                <td>{{valoresIniciales[8] | number: '1.5'}}<br/>{{valoresIniciales[8] | number: '1.5'}}</td>
+                            </tr>
+                          </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-xl-4 col-sm-12">
+                <p class="text-center text-white" style="font-size: 20px; margin-bottom: -16px; background-color: midnightblue; border-bottom: 1px solid white;"><small>Conversor de Divisas</small><p></p>
+                <form style="background-color: steelblue; height: 450px;">
+                    <div class="form-group px-2 py-2">
+                      <label for="moneda1" class="px-1 text-white">Cantidad</label>
+                      <input type="number" class="form-control" id="moneda1" required (change)="setValorInicial($event.target.value)">
+                    </div>
+                    <div class="form-group px-2 py-2">
+                      <label for="moneda2" class="px-1 text-white">De</label>
+                      <select class="form-control" id="moneda2" required (change)="setMoneda1($event.target.value)">
+                        <option value="USD">USD Dólares EEUU</option>
+                        <option value="EUR">EUR Euros UE</option>
+                        <option value="GBP">GBR Libras Esterlinas</option>
+                      </select>
+                    </div>
+                    <div class="form-group px-2 py-2">
+                        <label for="conversion" class="px-1 text-white">A</label>
+                        <select class="form-control" id="conversion" required (change)="setMoneda2($event.target.value)">
+                            <option value="USD">USD Dólares EEUU</option>
+                            <option value="EUR">EUR Euros UE</option>
+                            <option value="GBP">GBR Libras Esterlinas</option>
+                        </select>    
+                        <br/>
+                        <input type="number" class="form-control py-2" id="resultadoConversion" placeholder="{{valorConvertido.result | number:'1.5'}}" disabled>
+                    </div>
+                    <button type="button" class="btn btn-primary" style="background-color: gold; margin-left: 1.4%; width: 97%; margin-bottom: -37px; color: black;" (click)="convertir()">Convertir<i class="fas fa-arrow-right" style="color: white; float: right; margin-top: 5px;"></i></button>
+                </form>
+            </div>
+        </div>

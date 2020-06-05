@@ -1,0 +1,30 @@
+<div class="text-center py-2">
+    <h5 class="display-4"><b>Últimas noticias de Fútbol</b></h5>
+</div>
+<div class="row">
+    <div class="col-9">
+        <div class="row">
+                <div class="card col-6" style="border: none;" >    
+                    <img src="{{vector_noticia[0].img}}" class="card-img-top rounded float-left"/>                            
+                        <p><small><mark class="bg-danger text-white px-1">{{vector_noticia[0].tit | uppercase}}</mark></small><br/><b>{{vector_noticia[0].des}}</b></p>  
+                </div>
+                <div class="card col-6" style="border: none;"> 
+                    <img src="{{vector_noticia[1].img}}" class="card-img-top rounded float-left"/> 
+                        <p><small><mark class="bg-danger text-white px-1">{{vector_noticia[1].tit | uppercase}}</mark></small><br/><b>{{vector_noticia[1].des}}</b></p>
+                </div>
+        </div>
+        <div class="row">
+                <div class="card col-6" style="border: none;">
+                    <img src="{{vector_noticia[2].img}}" class="card-img-top rounded float-left"/>
+                        <p><small><mark class="bg-danger text-white px-1">{{vector_noticia[2].tit | uppercase}}</mark></small><br/><i class="fas fa-headphones-alt" style="color: red;"></i><b> {{vector_noticia[2].des}}</b></p>
+                </div> 
+                <div class="card col-6" style="border: none;">   
+                    <img src="{{vector_noticia[3].img}}" class="card-img-top rounded float-left"/>
+                        <p><small><mark class="bg-danger text-white px-1">{{vector_noticia[3].tit | uppercase}}</mark></small><br/><i class="fas fa-headphones-alt" style="color: red;"></i><b> {{vector_noticia[3].des}}</b></p> 
+                </div>    
+        </div>
+    </div>
+    <div class="col-3">
+        <img src="https://www.publigraficasborbalan.com/wp-content/uploads/2015/10/calendarios-personalizaos-economicos.jpg" class="img-fluid"/>
+    </div>
+</div>

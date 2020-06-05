@@ -1,0 +1,139 @@
+<div class="row">
+    <div class="col-12">
+        <p class="text-center text-white" style="font-size: 20px; margin-bottom: -16px; background-color: midnightblue; border-bottom: 1px solid white;"><small>Busqueda de estadísticas del COVID-19</small><p></p>
+        <form class="bg-dark rounded" style="height: 166px;">
+            <div class="form-group">
+              <label for="paisElegido" class="text-white px-4 py-2" >Seleccione país</label>
+              <select class="form-control" id="paisElegido" style="width: 96%; margin-left: 1.8%;" required (change)="eleccion($event.target.value)" name="paisElegido">
+                <option value="Todo el Mundo">Todo el mundo</option>
+                <option value="Argentina">Argentina</option>
+                <option value="China">China</option>
+                <option value="Estados Unidos">Estados Unidos</option>
+                <option value="Reino Unido">Reino Unido</option>
+                <option value="España">España</option>
+                <option value="Italia">Italia</option>
+                <option value="Alemania">Alemania</option>
+              </select>
+            </div>
+            <div class="form-group px-4">
+                <button type="button" class="btn btn-primary" style="margin-top: 10px;" (click)="resetear();">Mostrar todo</button>
+                <button type="button" class="btn btn-primary" style="float: right; margin-top: 10px;" (click)="cambiar()">Enviar</button>  
+                
+            </div>           
+        </form>
+    </div>
+    <div class="col-12">
+        <p class="h6 py-2">Estadísticas</p>
+        <div class="table-responsive" *ngIf="tablaCompleta; else elseBlock">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"><small>Ubicación</small></th> 
+                        <th scope="col" ><small>Casos confirmados</small></th>
+                        <th scope="col" ><small>Curados</small></th>
+                        <th scope="col" ><small>Fallecidos</small></th>
+                    </tr>
+                </thead>
+                <tbody>    
+                    <tr>
+                        <th scope="row"><i class="fas fa-globe"></i><small><b>Todo el mundo</b></small></th>
+                        <td>{{paisesS[0].confirmed}}</td>
+                        <td>{{paisesS[0].recovered}}</td>
+                        <td>{{paisesS[0].deaths}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><img src="../../../assets/media/arg2.jpg" class="img-fluid"/><small><b>Argentina</b></small></th>
+                        <td>{{paisesS[1].totalCases}}</td>
+                        <td>{{paisesS[1].totalRecovered}}</td>
+                        <td>{{paisesS[1].totalDeaths}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><img src="../../../assets/media/usa2.jpg" class="img-fluid"/><small><b>Estados Unidos</b></small></th>
+                        <td>{{paisesS[2].totalCases}}</td>
+                        <td>{{paisesS[2].totalRecovered}}</td>
+                        <td>{{paisesS[2].totalDeaths}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><img src="../../../assets/media/esp.jpg"/><small><b>España</b></small></th>
+                        <td>{{paisesS[3].totalCases}}</td>
+                        <td>{{paisesS[3].totalRecovered}}</td>
+                        <td>{{paisesS[3].totalDeaths}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><img src="../../../assets/media/ita.jpg" class="img-fluid"/><small><b>Italia</b></small></th>
+                        <td>{{paisesS[4].totalCases}}</td>
+                        <td>{{paisesS[4].totalRecovered}}</td>
+                        <td>{{paisesS[4].totalDeaths}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><img src="../../../assets/media/ale.jpg" class="img-fluid"/><small><b>Alemania</b></small></th>
+                        <td>{{paisesS[5].totalCases}}</td>
+                        <td>{{paisesS[5].totalRecovered}}</td>
+                        <td>{{paisesS[5].totalDeaths}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><img src="../../../assets/media/chaina.jpg" class="img-fluid"/><small><b>China</b></small></th>
+                        <td>{{paisesS[6].totalCases}}</td>
+                        <td>{{paisesS[6].totalRecovered}}</td>
+                        <td>{{paisesS[6].totalDeaths}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><img src="../../../assets/media/gbr2.jpg" class="img-fluid"/><small class="text-sm-right"><b>Reino Unido</b></small></th>
+                        <td>{{paisesS[7].totalCases}}</td>
+                        <td>{{paisesS[7].totalRecovered}}</td>
+                        <td>{{paisesS[7].totalDeaths}}</td>
+                    </tr>
+                </tbody>    
+            </table>
+        </div>
+    </div>
+    <ng-template #elseBlock>
+        <div class="col-12">
+            <div class="table-responsive" *ngIf="!todoMundo; else elseBlock">
+                <table class="table" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th scope="col"><small>Ubicación</small></th> 
+                            <th scope="col" ><small>Casos confirmados</small></th>
+                            <th scope="col" ><small>Curados</small></th>
+                            <th scope="col" ><small>Fallecidos</small></th>
+                        </tr>
+                    </thead>
+                    <tbody>    
+                        <tr>
+                            <th scope="row"><img src="{{img}}" class="img-fluid"/><small><b>{{aux}}</b></small></th>
+                            <td>{{pais[0].totalCases}}</td>
+                            <td>{{pais[0].totalRecovered}}</td>
+                            <td>{{pais[0].totalDeaths}}</td>
+                        </tr>
+                    </tbody>    
+                </table>
+            </div>
+        </div>
+        <ng-template #elseBlock>
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table" style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th scope="col"><small>Ubicación</small></th> 
+                                <th scope="col" ><small>Casos confirmados</small></th>
+                                <th scope="col" ><small>Curados</small></th>
+                                <th scope="col" ><small>Fallecidos</small></th>
+                            </tr>
+                        </thead>
+                        <tbody>    
+                            <tr>
+                                <th scope="row"><i class="fas fa-globe"></i><small><b>Todo el Mundo</b></small></th>
+                                <td>{{paisesS[0].confirmed}}</td>
+                            <td>{{paisesS[0].recovered}}</td>
+                            <td>{{paisesS[0].deaths}}</td>
+                            </tr>
+                        </tbody>    
+                    </table>
+                </div>
+            </div>
+        </ng-template>
+    </ng-template>
+    
+</div>
